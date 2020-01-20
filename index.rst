@@ -3,18 +3,20 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to 实习生求生指南's documentation!
-==========================================
+实习生工作求生指南
+===============================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   ./rules
 
+
+:doc:`rules`
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
