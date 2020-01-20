@@ -12,6 +12,7 @@
 
    ./rules
    ./tips
+   ./glossary
 
 
 Indices and tables
