@@ -46,6 +46,7 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 虽然我曾经惊奇的发现过一个简单粗暴的解决办法【1】但是我并不打算告诉你。
 
 正确的做法如下：
+
 1. 进入已经 clone 的 repo。运行 `git remote -v`。预期看到一个 remote，名字是 origin， URL 是你的 GitHub repo，forked from repo AAA。
 2. 假设你的repo是从 repo AAA fork 出来的。例如 https://github.com/lazyparser/becoming-a-compiler-engineer-codes 运行 `git remote add lazyparser URL`。 这一步的作用是添加了一个新的 remote。 remote 的名字可以自己取一个，没有什么需要遵守的规律。
 3. 运行 `git fetch lazyparser` 将上游仓库的代码也 clone 一份下来到你的本地机器（跟 origin 同样保存在 .git 目录下）
