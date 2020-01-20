@@ -11,9 +11,8 @@
    :caption: Contents:
 
    ./rules
+   ./tips
 
-
-:doc:`rules`
 
 Indices and tables
 ==================
