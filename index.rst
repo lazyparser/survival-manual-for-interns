@@ -3,13 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-实习生工作求生指南
+实习求生指南
 ===============================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   ./prepare
+   ./interview
+   ./first-four-weeks
+   ./team-dynamics
+   ./projects
+   ./last-work-day
+   ./become-staff
+   ./future
    ./rules
    ./tips
    ./glossary
