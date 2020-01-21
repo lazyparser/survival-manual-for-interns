@@ -20,6 +20,7 @@
    ./future
    ./rules
    ./tips
+   ./so-you-are-writing-scripts
    ./glossary
 
 
