@@ -4,41 +4,41 @@
 
 一些日常沟通的团队用语。
 
-y站： TODO
+y站：yt.droid.ac.cn
 
-b站： TODO
+b站：www.bilibili.com 传送门：https://space.bilibili.com/296494084?from=search&seid=2695174014376358612
 
-q站
+q站: q.droid.ac.cn
 
-t站
+t站: TODO
 
-gh
+gh： github.com
 
-tiger级
+tiger级: TODO
 
-whale级
+whale级: TODO
 
-dragon级
+dragon级: TODO
 
 LV
 
 能力等级
 
-DDL、Due
+DDL、Due: DDL(deadline)任务完成的截止日期，Due 任务负责人
 
-mentor
+mentor: 导师，上司
 
-owner
+owner: 仓库
 
-lord
+lord: 主管
 
-fief
+fief: TODO
 
-PLCT
+PLCT: 程序语言与编译技术实验室，隶属于ISRC
 
-ISRC
+ISRC：智能软件研究中心，隶属于ISCAS
 
-ISCAS
+ISCAS： 中国科学院软件研究所
 
 upstream
 
