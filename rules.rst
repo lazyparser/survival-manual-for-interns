@@ -57,6 +57,13 @@
 
 一般而言，模块级别的使用，放在 third_party 目录下，同时在CREDITS中致谢。而小的代码改动，则通常是自己理解了之后重写。
 
+Jay Michaelson 的这篇文章是所有员工和实习生的必读：
+
+There's no such thing as a free (software) lunch
+What every developer should know about open source licensing
+
+https://queue.acm.org/detail.cfm?id=1005066
+
 原则 07 只使用、无改动的工具不要放在 git repo 中
 ================================================
 
