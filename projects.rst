@@ -7,3 +7,13 @@ TODO
 注意这里只会介绍在开源领域的公开项目。
 
 商业交付或内部项目不会列在实习生手册里。
+
+* V8 for RISC-V
+* 方舟编译器社区建设
+* 平头哥玄铁C910的LLVM工具开发
+* RISC-V V Spec 的 LLVM 实现（aka rvv-llvm）
+* RISCV-IDE （有需要纵向交付的部分）
+* 永恒天平（一个聚焦RISC-V工具链的测评平台）
+* QEMU RISC-V 支援计划
+* MLIR （当前是 GSoC 形式）
+* OpenCV （当前是 GSoC 形式）
