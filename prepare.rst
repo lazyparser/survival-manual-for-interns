@@ -8,7 +8,7 @@
 * Linux命令行要用熟练。win10现在有WSL2，可以直接安装Ubuntu。
 * Bash脚本编程需要掌握一些。找本Bash脚本编程的书，过一遍。
 * Git使用要熟练。
-* 可以看看MIT的 missing course，[B站搬运 BV1H7411K7pZ](https://www.bilibili.com/video/BV1H7411K7pZ)
+* 可以看看MIT的 missing course，`B站搬运 BV1H7411K7pZ <https://www.bilibili.com/video/BV1H7411K7pZ>`_
 * LV2 及以上需要复习过一边数据结构和算法的基础知识。
 * LV3 及以上需要复习一遍操作系统原理和编译器原理。
 * LV4 及以上要求的综合实力比较多，短期准备不了什么。进入PLCT之后慢慢锻炼吧。

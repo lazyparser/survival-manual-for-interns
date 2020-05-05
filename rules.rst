@@ -62,7 +62,7 @@ Jay Michaelson 的这篇文章是所有员工和实习生的必读：
 There's no such thing as a free (software) lunch
 What every developer should know about open source licensing
 
-https://queue.acm.org/detail.cfm?id=1005066
+`<https://queue.acm.org/detail.cfm?id=1005066>`_
 
 原则 07 只使用、无改动的工具不要放在 git repo 中
 ================================================
@@ -84,7 +84,7 @@ https://queue.acm.org/detail.cfm?id=1005066
 
 
 一个有用的链接：
-https://tinylab.org/prebuilt-cross-toolchains/
+`<https://tinylab.org/prebuilt-cross-toolchains/>`_
 
 （FIXME：原则07的交叉编译器的内容或许可以放在tips）
 

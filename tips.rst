@@ -91,7 +91,7 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 正确的做法如下：
 
 1. 进入已经 clone 的 repo。运行 `git remote -v`。预期看到一个 remote，名字是 origin， URL 是你的 GitHub repo，forked from repo AAA。
-2. 假设你的repo是从 repo AAA fork 出来的。例如 https://github.com/lazyparser/becoming-a-compiler-engineer-codes 运行 `git remote add lazyparser URL`。 这一步的作用是添加了一个新的 remote。 remote 的名字可以自己取一个，没有什么需要遵守的规律。
+2. 假设你的repo是从 repo AAA fork 出来的。例如 `<https://github.com/lazyparser/becoming-a-compiler-engineer-codes>`_ 运行 `git remote add lazyparser URL`。 这一步的作用是添加了一个新的 remote。 remote 的名字可以自己取一个，没有什么需要遵守的规律。
 3. 运行 `git fetch lazyparser` 将上游仓库的代码也 clone 一份下来到你的本地机器（跟 origin 同样保存在 .git 目录下）
 4. 本地创建一个分支，从你计划 push 的 branch。具体 `git help branch` or `git help checkout`。你会发现原来这些命令都可以带两个以上参数的。一条命令搞定。
 5. work，commit，work，commit，得到一个 commit list （有时候对应的patches叫 patch set）
