@@ -103,7 +103,66 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 
 其它情况
 -------------------------------------------------------
+使用SSH方式clone 仓库源码
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+使用SSH的方式下载仓库代码，需要个人在Github的 `SSH Keys设置 <https://github.com/settings/keys>`_ 里配置本机的SSH公钥。
 
+否则无法clone 源码：
+::
+    $ git clone git@github.com:lazyparser/survivial-manual-for-interns.git
+    Cloning into 'survivial-manual-for-interns'...
+    Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+    git@github.com: Permission denied (publickey).
+
+具体配置步骤如下：
+
+1. 本地机器上配置SSH
+::
+
+    $ ssh-keygen -t rsa -C "1132021192@qq.com"
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/home/chenjy/.ssh/id_rsa): 
+    Enter passphrase (empty for no passphrase): 
+    Enter same passphrase again: 
+    Your identification has been saved in /home/chenjy/.ssh/id_rsa.
+    Your public key has been saved in /home/chenjy/.ssh/id_rsa.pub.
+    The key fingerprint is:
+    SHA256:aCPtc0lxXkzqlawcjDbxOTo7pgIrY1wS2ig6D4iio8k 1132021192@qq.com
+    The key's randomart image is:
+    +---[RSA 2048]----+
+    |        .   .    |
+    |         = * .   |
+    |        = O *    |
+    | .   . o O *     |
+    |.o. . = S =      |
+    |*.o. + o +       |
+    |O oo  o *        |
+    |X=. .  = .       |
+    |*E.  ..          |
+    +----[SHA256]-----+
+
+注：邮箱修改为自己的邮箱，Enter passphrase 默认回车即可。
+
+2. 将公钥复制粘贴到 Github 的个人SSH Keys配置里。
+产生的公钥一般为 `~/.ssh/id_rsa.pub`
+::
+
+    $ cat ~/.ssh/id_rsa.pub
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa+LNRQuTAjMWZjRZ8d0CK9rZFjZZBQG2Q8UqBZpHQ7GQSBMdhO4mxRYYk/Zb7t7pMj3BpEyOOGKOFXRjic7ibREnki06TQ8LBolRAFDSBv6E4oOS5ei52mwh+NiL2mT7/5GdwZwgR2eDO22MxDRCHObFr2TBHkiThRs9NTi/28UPsy3MluyuPU/0IWZNwcjr1EKRL9qNOh9Ro+8GoEEb23A6sdG2zOjiV/VKiba8so5TqBt9ZFPvjnJtKINUb8TasusC49dSay5paDCJKnDCJQoDIiOn7ggg4ivkan2w9HK4lUK5oNHjQyQRPRiFBF+mm5DJJ7TW03dheOqZq6KPT 1132021192@qq.com
+
+选中公钥复制粘贴到Github `SSH Keys设置 <https://github.com/settings/keys>`_ 的 NEW SSH key 的 key 里即可(Title自己命名)。
+
+3. 启动SSH代理并添加密钥
+::
+
+    $ eval `ssh-agent -s`
+    $ ssh-add
+
+最后就可以使用SSH方式下载仓库文件了。比如：
+::
+
+    $ git clone git@github.com:lazyparser/survivial-manual-for-interns.git
+	
 TODO 由实习生遇到问题之后发起PR到这里。
 
 
