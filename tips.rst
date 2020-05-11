@@ -267,7 +267,48 @@ av83277184
 
 这样做能够方便编辑器发挥其拼写检查功能。
 
+拿到新电脑后可以做的事(从开箱到llvm)
+====================================================
 
+1. 进入系统后安装wsl/wsl2（默认ubuntu18.04），安装方法可以参考这篇官方文档 https://docs.microsoft.com/zh-cn/windows/wsl/install-win10 
+
+2. 从开始菜单进入安装好的ubuntu系统中，进入 ``/etc/apt`` 更换软件源为国内源(以阿里云软件源为例),并更新软件列表:
+::
+
+    $ cd /etc/apt
+    $ vi sources.list
+    //vim中输入 :%:cn.archive.ubuntu:mirrors.aliyun:g ,进行查找替换源
+    $ sudo apt-get update
+
+3. 安装git、gcc、g++、cmake、make、ninja-build
+::
+
+    $ sudo apt-get install git gcc g++ cmake make ninja-build
+
+4. 导入自己的ssh密钥(参考上方)
+
+5. 克隆llvm项目到本地(没速度的话尝试去掉https中的s，或者从y站镜像clone)
+::
+
+    $ git clone https://github.com/llvm/llvm-project.git
+
+6. 进入llvm-project，准备编译llvm+clang(由于wsl只能运行在系统盘，注意你新电脑的系统盘大小，建议剩余100G)
+::
+
+    $ cd llvm-project
+    $ mkdir build
+    $ cd build
+    $ cmake -G "Unix Makefiles" -DLLVM_ENABLE_PROJECTS="clang;libcxx;libcxxabi" ../llvm
+
+7. 编译llvm，并记录你的编译用时
+::
+
+    $ time make -j4
+
+8. 验证llvm是否安装成功(参考 https://llvm.org/docs/TestingGuide.html )
+::
+
+    $ make check
 
 【1】 我曾经指导过的一位实习生，每次要解决跟我（upstream）的repo不一致时候，都是删除自己的 fork，重新 fork。提交了多少次 PR 就删除了多少次。
 更好玩的是，他还教会了周围的还处在迷茫中的实习生，一度成为了。
