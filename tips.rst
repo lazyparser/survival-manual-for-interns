@@ -121,9 +121,9 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 
     $ ssh-keygen -t rsa -C "1132021192@qq.com"
     Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/chenjy/.ssh/id_rsa): 
-    Enter passphrase (empty for no passphrase): 
-    Enter same passphrase again: 
+    Enter file in which to save the key (/home/chenjy/.ssh/id_rsa):
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
     Your identification has been saved in /home/chenjy/.ssh/id_rsa.
     Your public key has been saved in /home/chenjy/.ssh/id_rsa.pub.
     The key fingerprint is:
@@ -162,7 +162,7 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 ::
 
     $ git clone git@github.com:lazyparser/survivial-manual-for-interns.git
-	
+
 TODO 由实习生遇到问题之后发起PR到这里。
 
 
@@ -270,7 +270,7 @@ av83277184
 拿到新电脑后可以做的事(从开箱到llvm)
 ====================================================
 
-1. 进入系统后安装wsl/wsl2（默认ubuntu18.04），安装方法可以参考这篇官方文档 https://docs.microsoft.com/zh-cn/windows/wsl/install-win10 
+1. 进入系统后安装wsl/wsl2（默认ubuntu18.04），安装方法可以参考这篇官方文档 https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 
 2. 从开始菜单进入安装好的ubuntu系统中，进入 ``/etc/apt`` 更换软件源为国内源(以阿里云软件源为例),并更新软件列表:
 ::
@@ -312,3 +312,16 @@ av83277184
 
 【1】 我曾经指导过的一位实习生，每次要解决跟我（upstream）的repo不一致时候，都是删除自己的 fork，重新 fork。提交了多少次 PR 就删除了多少次。
 更好玩的是，他还教会了周围的还处在迷茫中的实习生，一度成为了。
+
+Remote rejected (shallow update not allowed) after changing Git remote URL
+===========================================================================
+
+如果是为了带宽问题用了 `git cloen -depth x` 选项，那么 push 到别的remote的时候会遇到
+
+```
+ ! [remote rejected]       master -> master (shallow update not allowed)
+```
+
+解决方法：
+ 
+https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-allowed-after-changing-git-remote-url
