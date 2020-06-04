@@ -108,38 +108,40 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 使用SSH的方式下载仓库代码，需要个人在Github的 `SSH Keys设置 <https://github.com/settings/keys>`_ 里配置本机的SSH公钥。
 
 否则无法clone 源码：
+
 ::
-    $ git clone git@github.com:lazyparser/survivial-manual-for-interns.git
-    Cloning into 'survivial-manual-for-interns'...
-    Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
-    git@github.com: Permission denied (publickey).
+
+  $ git clone git@github.com:lazyparser/survivial-manual-for-interns.git
+  Cloning into 'survivial-manual-for-interns'...
+  Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+  git@github.com: Permission denied (publickey).
 
 具体配置步骤如下：
 
 1. 本地机器上配置SSH
 ::
 
-    $ ssh-keygen -t rsa -C "1132021192@qq.com"
-    Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/chenjy/.ssh/id_rsa):
-    Enter passphrase (empty for no passphrase):
-    Enter same passphrase again:
-    Your identification has been saved in /home/chenjy/.ssh/id_rsa.
-    Your public key has been saved in /home/chenjy/.ssh/id_rsa.pub.
-    The key fingerprint is:
-    SHA256:aCPtc0lxXkzqlawcjDbxOTo7pgIrY1wS2ig6D4iio8k 1132021192@qq.com
-    The key's randomart image is:
-    +---[RSA 2048]----+
-    |        .   .    |
-    |         = * .   |
-    |        = O *    |
-    | .   . o O *     |
-    |.o. . = S =      |
-    |*.o. + o +       |
-    |O oo  o *        |
-    |X=. .  = .       |
-    |*E.  ..          |
-    +----[SHA256]-----+
+  $ ssh-keygen -t rsa -C "1132021192@qq.com"
+  Generating public/private rsa key pair.
+  Enter file in which to save the key (/home/chenjy/.ssh/id_rsa):
+  Enter passphrase (empty for no passphrase):
+  Enter same passphrase again:
+  Your identification has been saved in /home/chenjy/.ssh/id_rsa.
+  Your public key has been saved in /home/chenjy/.ssh/id_rsa.pub.
+  The key fingerprint is:
+  SHA256:aCPtc0lxXkzqlawcjDbxOTo7pgIrY1wS2ig6D4iio8k 1132021192@qq.com
+  The key's randomart image is:
+  +---[RSA 2048]----+
+  |        .   .    |
+  |         = * .   |
+  |        = O *    |
+  | .   . o O *     |
+  |.o. . = S =      |
+  |*.o. + o +       |
+  |O oo  o *        |
+  |X=. .  = .       |
+  |*E.  ..          |
+  +----[SHA256]-----+
 
 注：邮箱修改为自己的邮箱，Enter passphrase 默认回车即可。
 
@@ -316,12 +318,12 @@ av83277184
 Remote rejected (shallow update not allowed) after changing Git remote URL
 ===========================================================================
 
-如果是为了带宽问题用了 `git cloen -depth x` 选项，那么 push 到别的remote的时候会遇到
+如果是为了带宽问题用了 `git clone -depth x` 选项，那么 push 到别的remote的时候会遇到
 
-```
- ! [remote rejected]       master -> master (shallow update not allowed)
-```
+::
+
+  ! [remote rejected]       master -> master (shallow update not allowed)
 
 解决方法：
- 
+
 https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-allowed-after-changing-git-remote-url
