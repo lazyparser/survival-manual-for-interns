@@ -345,3 +345,13 @@ Remote rejected (shallow update not allowed) after changing Git remote URL
 解决方法：
 
 https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-allowed-after-changing-git-remote-url
+
+
+报告交流用的PPT/Slides需要准备中文和英文版本
+=======================================================================================
+
+我们平时的交流，多数是讲中文，用中文的PPT。但是，现在也越来越多的有英语世界的交流。
+有的时候需要用英文演讲英文slides，有的时候是需要提供几页的ppt素材给合作伙伴去国外做技术分享。
+因此目前会默认要求所有的对外公开的 slides，最好自己准备全英文的版本。
+
+同时英语要多多练习。说不定哪天实验室就来了英语世界的技术人员交流（常有的事情）。
