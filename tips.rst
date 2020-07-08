@@ -348,3 +348,155 @@ https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-
 
 报告交流用的PPT/Slides需要准备中文和英文版本
 =======================================================================================
+
+我们平时的交流，多数是讲中文，用中文的PPT。但是，现在也越来越多的有英语世界的交流。
+有的时候需要用英文演讲英文slides，有的时候是需要提供几页的ppt素材给合作伙伴去国外做技术分享。
+因此目前会默认要求所有的对外公开的 slides，最好自己准备全英文的版本。
+
+同时英语要多多练习。说不定哪天实验室就来了英语世界的技术人员交流（常有的事情）。
+
+如何为一个新的项目建立CI/CD机制
+===========================================================================
+
+凡是由于项目交付压力在深夜掉头发的人，都会知道一个自动化的、有效运行的CI/CD机制是多么能够抚慰心灵。
+
+以 Clang/LLVM 项目为例，介绍如何自己搭建一个CI/CD。
+
+**0x00 准备工作**
+
+首先，代码需要有版本管理。而版本管理现在基本上都是 git。其他管理工具都是蕾丝，只要有命令行工具就OK。
+
+**0x01 完成敲回车就一条龙完成的脚本**
+
+第二，现在的代码仓库是需要能够被手工构建成功的。如果本身自己手工都还没有构建成功，就先停下来手头的工作，
+把这件事情做好。可能有同学会问，有很多组件和函数都还没有实现，怎么办？答案是写一系列的空的函数，
+能够保证其他部分可以正常被编译，最低要求是可以被编译构建成功，稍微进一点的要求是可以有一个固定的正确但是没用的返回结果，
+让其他部分的构建和测试用例可以完成。
+
+手工可以构建完成之后，接下来就是写到一个脚本里。以 clang/llvm 为例，一般的流程是：
+
+
+# clone # 下载
+# checkout # 到正确的分之
+# status # 检查是否 clean
+# git submodule update -r -f --init # 如果有子仓库
+mkdir build
+cd build
+cmake -DXXX_XX=YYY ..
+make -j $(nproc)
+make check # or make test 就是帮助运行回归测试
+
+在一个新开的 terminal 中，完成以上一系列行为。然后用
+
+history
+
+命令，复制下来，到一个 build.sh 中，编辑。
+
+简单但是非常重要的一个验证是，切换到另一个目录下，运行 build.sh 看看是否可以成功构建。如果可以，那么进入下一步。
+
+到目前为止，已经有了一个比较好用的脚本，可以方便的进行构建了。
+
+**0x02 只有一个 git remote**
+
+假设没有gitlab也没有github，所有人的代码都是（或许有人工review后）push到一个分支，假设是 develop。
+
+那么至少可以做自动化的是推送后的构建测试。写个 for 循环：
+
+# Clone
+
+# clone # 下载
+# checkout # 到正确的分之
+# status # 检查是否 clean
+while sleep 600 # 每隔10分钟
+do
+    git pull
+    ./build.sh || notify-or-send-mail
+done
+
+就完成了最为简单的推送后CI测试。
+
+没错的，就是这么简单的。没有什么花哨的概念。
+
+核心是：
+（1）挂了有人看有人及时修复，主线分支不修复好，禁止推送新代码；
+（2）build.sh 跟这个循环的内容都需要跟项目的开发变更一起更新。
+
+**0x03 使用 gitlab CI/CD：写配置文件**
+
+有了上一步的脚本之后。剩下来的工作就简单了。
+
+注意，这里的做法跟官方和网上常见的做法都是不同的：这里教授的是 **个人或十人以下小团队** 从没有CI到有CI痛苦和麻烦程度最小的途径。
+等CI建立起来之后，可以再琢磨如何使用更为正统和docker的方式来进行。
+
+如果项目有一个 gitlab，那么在项目根目录放一个 .gitlab-ci.yml 这是例子
+
+$ cat .gitlab-ci.yml
+
+before_script:
+
+build:
+  stage: build
+  tags:
+    - rvv-llvm # 用来指定构建runner的
+
+  script:
+    - ./build.sh
+
+$ cat build.sh
+set -e
+mkdir build
+cd build
+cmake -DLLVM_TARGETS_TO_BUILD="X86;RISCV" -DLLVM_ENABLE_PROJECTS="clang;compiler-rt;lld" -G Ninja ../llvm
+ninja
+ninja check
+
+**0x04 使用 gitlab CI/CD：配置 runner**
+
+然后就是设置 gitlab-runner。
+
+首先假设是 linux。别的系统请自己折腾。
+
+按照 https://docs.gitlab.com/runner/install/linux-manually.html
+国内请务必直接（可能要海外）下载一个二进制然后就开始干，不要用 apt 来安装，很慢。
+
+之后进入项目的配置主页（需要是 gitlab 这个项目 maintainer 以上的人）
+项目页面左下角 Settings - CI/CD
+展开 Runners
+看到
+
+Set up a specific Runner manually
+Install GitLab Runner
+Specify the following URL during the Runner setup: 【你要复制粘贴的网址】
+Use the following registration token during setup: 【一会儿要用到的token】
+
+然后按照
+https://docs.gitlab.com/runner/install/linux-manually.html
+和
+https://docs.gitlab.com/runner/register/
+进行注册。注册时候就要用到刚才显示的网址和token。
+
+注意会要求输入 **tag** 这个 tag 是跟上文中 gitlab-ci 文件中的 tag 对应的。是 runner 的筛选机制。
+
+同时运行环境的时候选择 **shell** 。注意这里的前提是简单，而且所有有推送权限的人都是可以信任的。
+否则有 git 推送权限的人有可能控制 shell 模式 gitlab runner 所在的机器。
+当然，这里我们只是个人使用或者微型团队，此类RCE问题不考虑。
+
+之后并不会立即启动，而是需要使用
+
+sudo gitlab-runner start
+
+类似的命令（我记不清了）来启动。启动之后就会看到一些输出了。同时请务必在 tmux 中进行，避免掉线。
+
+接下来就可以从repo页面的左边的 CI/CD - jobs 看到运行结果了。
+
+一开始可能会有一些问题，常见的有：
+
+没有 runner，卡住。（1）查看runner跟gitlab站点的通信时间，是否成功链接上了；（2）查看是否 tag 是匹配的。
+
+脚本执行过程错误。恭喜，这里环境就已经构建好了。根据错误提示，判断是代码提交的bug（那就开issue）或者解决脚本自己的bug（分析、修改）
+
+**0x05 搞定了，然后持续维护起来**
+
+坏了就赶紧修。这是CI/CD的第一原则。可能也是唯一普遍使用的原则。
+
+TODO 加入更高级和PLCT实际使用部署的环境。
