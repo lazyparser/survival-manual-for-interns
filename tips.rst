@@ -376,6 +376,7 @@ https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-
 手工可以构建完成之后，接下来就是写到一个脚本里。以 clang/llvm 为例，一般的流程是：
 
 ::
+  
   # clone # 下载
   # checkout # 到正确的分之
   # status # 检查是否 clean
@@ -404,6 +405,7 @@ https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-
 那么至少可以做自动化的是推送后的构建测试。写个 for 循环：
 
 ::
+
   # Clone
 
   # clone # 下载
@@ -433,6 +435,7 @@ https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-
 如果项目有一个 gitlab，那么在项目根目录放一个 .gitlab-ci.yml 这是例子
 
 ::
+
   $ cat .gitlab-ci.yml
 
   before_script:
@@ -468,6 +471,7 @@ https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-
 看到
 
 ::
+
   Set up a specific Runner manually
   Install GitLab Runner
   Specify the following URL during the Runner setup: 【你要复制粘贴的网址】
@@ -488,6 +492,7 @@ https://docs.gitlab.com/runner/register/
 之后并不会立即启动，而是需要使用
 
 ::
+
   sudo gitlab-runner start
 
 类似的命令（我记不清了）来启动。启动之后就会看到一些输出了。同时请务必在 tmux 中进行，避免掉线。
