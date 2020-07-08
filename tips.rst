@@ -375,20 +375,21 @@ https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-
 
 手工可以构建完成之后，接下来就是写到一个脚本里。以 clang/llvm 为例，一般的流程是：
 
-
-# clone # 下载
-# checkout # 到正确的分之
-# status # 检查是否 clean
-# git submodule update -r -f --init # 如果有子仓库
-mkdir build
-cd build
-cmake -DXXX_XX=YYY ..
-make -j $(nproc)
-make check # or make test 就是帮助运行回归测试
+::
+  # clone # 下载
+  # checkout # 到正确的分之
+  # status # 检查是否 clean
+  # git submodule update -r -f --init # 如果有子仓库
+  mkdir build
+  cd build
+  cmake -DXXX_XX=YYY ..
+  make -j $(nproc)
+  make check # or make test 就是帮助运行回归测试
 
 在一个新开的 terminal 中，完成以上一系列行为。然后用
 
-history
+::
+  history
 
 命令，复制下来，到一个 build.sh 中，编辑。
 
@@ -402,16 +403,17 @@ history
 
 那么至少可以做自动化的是推送后的构建测试。写个 for 循环：
 
-# Clone
+::
+  # Clone
 
-# clone # 下载
-# checkout # 到正确的分之
-# status # 检查是否 clean
-while sleep 600 # 每隔10分钟
-do
-    git pull
-    ./build.sh || notify-or-send-mail
-done
+  # clone # 下载
+  # checkout # 到正确的分之
+  # status # 检查是否 clean
+  while sleep 600 # 每隔10分钟
+  do
+      git pull
+      ./build.sh || notify-or-send-mail
+  done
 
 就完成了最为简单的推送后CI测试。
 
@@ -430,25 +432,26 @@ done
 
 如果项目有一个 gitlab，那么在项目根目录放一个 .gitlab-ci.yml 这是例子
 
-$ cat .gitlab-ci.yml
+::
+  $ cat .gitlab-ci.yml
 
-before_script:
+  before_script:
 
-build:
-  stage: build
-  tags:
-    - rvv-llvm # 用来指定构建runner的
+  build:
+    stage: build
+    tags:
+      - rvv-llvm # 用来指定构建runner的
 
-  script:
-    - ./build.sh
+    script:
+      - ./build.sh
 
-$ cat build.sh
-set -e
-mkdir build
-cd build
-cmake -DLLVM_TARGETS_TO_BUILD="X86;RISCV" -DLLVM_ENABLE_PROJECTS="clang;compiler-rt;lld" -G Ninja ../llvm
-ninja
-ninja check
+  $ cat build.sh
+  set -e
+  mkdir build
+  cd build
+  cmake -DLLVM_TARGETS_TO_BUILD="X86;RISCV" -DLLVM_ENABLE_PROJECTS="clang;compiler-rt;lld" -G Ninja ../llvm
+  ninja
+  ninja check
 
 **0x04 使用 gitlab CI/CD：配置 runner**
 
@@ -464,10 +467,11 @@ ninja check
 展开 Runners
 看到
 
-Set up a specific Runner manually
-Install GitLab Runner
-Specify the following URL during the Runner setup: 【你要复制粘贴的网址】
-Use the following registration token during setup: 【一会儿要用到的token】
+::
+  Set up a specific Runner manually
+  Install GitLab Runner
+  Specify the following URL during the Runner setup: 【你要复制粘贴的网址】
+  Use the following registration token during setup: 【一会儿要用到的token】
 
 然后按照
 https://docs.gitlab.com/runner/install/linux-manually.html
@@ -483,7 +487,8 @@ https://docs.gitlab.com/runner/register/
 
 之后并不会立即启动，而是需要使用
 
-sudo gitlab-runner start
+::
+  sudo gitlab-runner start
 
 类似的命令（我记不清了）来启动。启动之后就会看到一些输出了。同时请务必在 tmux 中进行，避免掉线。
 
