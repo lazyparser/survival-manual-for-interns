@@ -10,14 +10,9 @@
    :maxdepth: 2
    :caption: Contents:
 
-   ./prepare
    ./interview
    ./first-four-weeks
    ./team-dynamics
-   ./projects
-   ./last-work-day
-   ./become-staff
-   ./future
    ./rules
    ./tips
    ./so-you-are-writing-scripts
