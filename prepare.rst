@@ -23,3 +23,12 @@ AI编译器方向的一些学习资源：
 https://zhuanlan.zhihu.com/p/163717035
 
 阿里PAI团队《AI编译优化》不错的系列文章。
+
+虚拟机分支的同学应当看过或掌握的内容
+================================================
+
+Mario Wolczko @ VMSS16: A Concise and Opinionated History of Virtual Machines
+https://www.youtube.com/watch?v=QnQYhrpX39M&list=PLJq3XDLIJkib2h2fObomdFRZrQeJg4UIW
+
+90分钟时间，介绍了虚拟机发展的一些历史，是系统性了解虚拟机历史发展很好的入门阅读。
+
