@@ -32,3 +32,11 @@ https://www.youtube.com/watch?v=QnQYhrpX39M&list=PLJq3XDLIJkib2h2fObomdFRZrQeJg4
 
 90分钟时间，介绍了虚拟机发展的一些历史，是系统性了解虚拟机历史发展很好的入门阅读。
 
+
+RISC-V 相关的内容
+================================================
+
+Chisel Quick Tutorial - 1st RISC-V Bootcamp
+https://www.youtube.com/watch?v=pfM1WUWbfBs
+
+2015年的第一次（？）公开有记录的 Chisel 介绍。现在已经有了很大的不同。如果是做 Chisel/FIRTTL 相关的实习生，那么值得看一看。
