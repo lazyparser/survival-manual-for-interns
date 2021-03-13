@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>rules - survivial manual for interns</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="interview.html"><strong aria-hidden="true">1.</strong> interview</a></li><li class="chapter-item expanded "><a href="first-four-weeks.html"><strong aria-hidden="true">2.</strong> first-four-weeks</a></li><li class="chapter-item expanded "><a href="team-dynamics.html"><strong aria-hidden="true">3.</strong> team-dynamics</a></li><li class="chapter-item expanded "><a href="rules.html" class="active"><strong aria-hidden="true">4.</strong> rules</a></li><li class="chapter-item expanded "><a href="tips.html"><strong aria-hidden="true">5.</strong> tips</a></li><li class="chapter-item expanded "><a href="so-you-are-writing-scripts.html"><strong aria-hidden="true">6.</strong> so-you-are-writing-scripts</a></li><li class="chapter-item expanded "><a href="glossary.html"><strong aria-hidden="true">7.</strong> glossary</a></li><li class="chapter-item expanded "><a href="prepare.html"><strong aria-hidden="true">8.</strong> prepare</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">survivial manual for interns</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="工作守则速查"><a class="header" href="#工作守则速查">工作守则速查</a></h1>
+<p>本节列举了一些在我的团队中工作默认遵守的原则（强制要求）。
+绝大部分原则是不区分实习生（intern）和正式员工（staff）以及具有自治和指挥权的领主（lord）的。</p>
+<p>我所组建和管理的团队，一般采用精英自治模式。
+这要求每一位成员都具有高度的自主性、高度的技术能力和自我管理意识，同时能够同团队其他成员、以及整个团队实际要达到的目标出发进行事态分析和预测执行。</p>
+<p>对于实习生而言，我内心并不想要降低要求。我相信优秀的人不是顿悟然后战斗力爆炸的，是通过长年累月的积累形成的。
+注意，请注意，这里有一个误区。或者换个说法，现在我要开始揭示一个你可能从未认识到的事实：
+这些我很珍视的品质，这种在劳动力市场上难能可贵的能力，并不需要任何超过平均值的智商、情商、数学功底、计算机功底、抑或其他任何需要痛苦自律才达到。
+相反的，完全相反的，这些珍贵的品质，是需要对接下来我列出来的这些看起来微不足道的原则的遵守。</p>
+<p>成为我的团队的一员，长期的那种，一个必须的前提是 <strong>Be Humble</strong>，谦卑。毕竟，
+要相信只要遵守这些看起来是鸡毛蒜皮的守则就可以成为我刚才提到的顶级优秀的人才，并不是很容易。</p>
+<h2 id="原则-01-任何会议均要有纪要"><a class="header" href="#原则-01-任何会议均要有纪要">原则 01 任何会议均要有纪要</a></h2>
+<p>没有会议纪要的会议或谈话，不曾发生过。</p>
+<h2 id="02-任何任务均要有计划和记录"><a class="header" href="#02-任何任务均要有计划和记录">02 任何任务均要有计划和记录</a></h2>
+<p>内部系统没有记录的任务，没有发生过。</p>
+<h2 id="03-learning-by-teaching"><a class="header" href="#03-learning-by-teaching">03 Learning By Teaching</a></h2>
+<p>以下原则是对所有成员（实习生、学生和员工）普遍适用的：</p>
+<ul>
+<li>任何学习过程本身不是目标，也不能作为交付内容。（不然就应该是反过来我来收培训费啦😄）</li>
+<li>未能讲授分享的知识，未能掌握。也就是说，没学会。</li>
+</ul>
+<h2 id="原则-04-没有版本控制的代码皆为尸体"><a class="header" href="#原则-04-没有版本控制的代码皆为尸体">原则 04 没有版本控制的代码皆为尸体</a></h2>
+<p>任何离开 git repo 的代码，都是尸体（corpus）。</p>
+<h2 id="原则-05-任何非官方下载的软件二进制都有后门"><a class="header" href="#原则-05-任何非官方下载的软件二进制都有后门">原则 05 任何非官方下载的软件二进制都有后门</a></h2>
+<p>是真的。严谨百度网盘或者X网盘下载。如果下载速度慢或者被墙，找mentor。</p>
+<h2 id="原则-06-严格遵守开源代码版权和license"><a class="header" href="#原则-06-严格遵守开源代码版权和license">原则 06 严格遵守开源代码版权和LICENSE</a></h2>
+<p>做学生的时候，一般的工作流程是，有一个问题，分析，Google下代码，复制粘贴，修改。 It works，交作业。</p>
+<p>但是做项目的时候是严格禁止直接复制粘贴的：没有标注引用出处的代码复制会被看成抄袭行为，
+这在商业软件开发中是很严重的。这点尤其需要引起重视。</p>
+<p>一般性的原则是，如果引用了他人的代码，首先需要检查是否LICENSE是跟你正在做的项目的LICENSE是相容的。</p>
+<p>如果相容，那么引用的时候，需要注意保留作者的CREDITS。也就是说，如果是文件使用，本身有文件头声明，
+那么要保留；如果是引用很少的片段，那么在注释中指出URL。如果是软件包使用，需要在CREDITS中进行致谢。</p>
+<p>一般而言，模块级别的使用，放在 third_party 目录下，同时在CREDITS中致谢。而小的代码改动，则通常是自己理解了之后重写。</p>
+<p>Jay Michaelson 的这篇文章是所有员工和实习生的必读：</p>
+<p>There's no such thing as a free (software) lunch
+What every developer should know about open source licensing</p>
+<p><code>&lt;https://queue.acm.org/detail.cfm?id=1005066&gt;</code>_</p>
+<h2 id="原则-07-只使用无改动的工具不要放在-git-repo-中"><a class="header" href="#原则-07-只使用无改动的工具不要放在-git-repo-中">原则 07 只使用、无改动的工具不要放在 git repo 中</a></h2>
+<p>对于不修改只是用的软件，使用脚本自动下载和解压缩而不是放在 git repo。</p>
+<p>例如交叉编译，要使用到 arm-linux-gcc-8 的某一版本的编译器。只是使用，不进行修改。这种情形是跟代码LICENSE没关系的，最好是按照脚本下载压缩文件，然后解压缩的形式。</p>
+<p>这样【仓库中只有你写的下载-解压缩脚本，是没有这个编译器tar包的】。</p>
+<pre><code class="language-shell">
+    if 本地没有tar名字
+        从URL下载
+    # 保证有了
+    if 有目标目录了
+        删除这个目录
+    tar tar文件 to 目标目录
+</code></pre>
+<p>一个有用的链接：
+<code>&lt;https://tinylab.org/prebuilt-cross-toolchains/&gt;</code>_</p>
+<p>（FIXME：原则07的交叉编译器的内容或许可以放在tips）</p>
+<h2 id="原则-08-避免这个那个上次昨天等模糊指代"><a class="header" href="#原则-08-避免这个那个上次昨天等模糊指代">原则 08 避免「这个、那个、上次、昨天」等模糊指代</a></h2>
+<p>模糊指代也是歧义指代，是指说的代词可以指向一个客体集合而不是唯一的客体对象。</p>
+<p>一个检测方法是将提到了指代的话单独拎出来读一遍，看看是否可以脱离聊天上下文成立。</p>
+<p>提到软件，最好有具体的版本号，或者tag，或者 commit id；</p>
+<p>提到任务，最好有 issue number 或者 T id；</p>
+<p>讨论问题，先在GitHub或y站进行记录，然后贴url，再开口讨论。</p>
+<h2 id="原则-09-避免使用你在对话中"><a class="header" href="#原则-09-避免使用你在对话中">原则 09 避免使用「你」在对话中</a></h2>
+<p>不管是中文语言还是英语还是日语，直接使用「你/you/あなた」都是带有隐含的对抗性质的。同时，「你」也会导致文字内容复制转发的时候会需要重新编辑。
+改写的方式有很多种，要看具体的上下文。一般是有意识的规避几次就好了。一个通用做法是直接写名字，「我（名字）这边」怎么怎么样，「X这边负责」怎么怎么样，类似。</p>
+<h2 id="原则-10-禁止在项目开始的时候就用话语给自己寻找退路"><a class="header" href="#原则-10-禁止在项目开始的时候就用话语给自己寻找退路">原则 10 禁止在项目开始的时候就用话语给自己寻找退路</a></h2>
+<p>语言能够塑造人的行为，并在思维上给自己预期的失败寻找理由。</p>
+<p>在项目的开始的时候，即使你的内心是这么想的，有些话也是不可以说出来的。以下是一些在PLCT被要求禁止说出来的话。</p>
+<p><strong>例子1: 隐式推卸责任</strong></p>
+<p>（当接到一个新任务和交付时间节点的时候）</p>
+<p>「这个事情我之前没有接触过。我先看一看。」</p>
+<p>实际上表达的潜台词：</p>
+<p>「我不想对能否按时交付负责。我也不对结果负责。如果到了交货日期我交付不了，那要怪mentor自己。因为，我已经一开始就告诉mentor了。」</p>
+<p><strong>例子2: 隐藏现状的说话方式</strong></p>
+<p>当对一个事情进行解释的时候，使用了 「现状是A，因为B」的句式。在说出了A之后，非常快速的说「因为」。</p>
+<p>这种情况，一定是在隐藏自己对A的陈述。</p>
+<p>作为 mentor，应该立刻打断陈述，要求重复陈述A句，并仔细分析现状。不要分析原因。先确定现状。当出现这种情况的时候，就说明 <strong>一定是出现了坏消息</strong> 。
+mentor/lord 是对项目交付最终负责的人，而不是 intern。 所以，身为 mentor 需要有这个能力。</p>
+<p><strong>例子3: 模糊进展的说话方式</strong></p>
+<p>在对工作进展进行描述的时候，采用大量的好像、可能、大概、应该是的说法去描述细节，不明确的表明进展情况。</p>
+<p>这种情况是潜意识的逃避对目前的进展做说明，将进展掩盖在大量模棱两可的细节之中，会给合作伙伴和主管造成极大的困扰，造成实际进展不可见。
+这种情况之下，通常进展已经不可控。</p>
+<p>作为 intern 和 staff，以此为镜子自我观察。这几条例子都是非常、非常常见的，而且多数人已经形成了（很难改掉的）习惯。</p>
+<p>在PLCT，不承担责任或者隐含的隐瞒坏消息是会被 wuwei 立刻抓住的。</p>
+<p>要么改掉，要么离开PLCT。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="team-dynamics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="tips.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="team-dynamics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="tips.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

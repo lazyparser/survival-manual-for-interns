@@ -1,0 +1,9 @@
+[book]
+authors = ["MATRIXKOO"]
+language = "zh_CN"
+multilingual = false
+src = "src"
+title = "survivial manual for interns"
+
+[output.html]
+default-theme = "rust"
