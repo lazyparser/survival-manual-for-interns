@@ -5,7 +5,7 @@
 一些日常沟通的团队用语。
 
 * PLCT: 程序语言与编译技术实验室，隶属于ISRC
-* y站：是指团队内部使用的gitlab系统。由于历史原因使用了一个y开头的缩写，所以建成y站。
+* y站：是指团队内部使用的gitlab系统。由于历史原因使用了一个y开头的缩写，所以简称y站。
 * B站：`<https://www.bilibili.com>`_ `往期技术报告传送门 <https://space.bilibili.com/296494084>`_
 * q站: `<https://q.droid.ac.cn>`_ 是软件所机器人团队维护的机器人开发社区。
 * t站： 是软件所工业仿真团队的内部系统站点。
@@ -18,7 +18,7 @@
 * owner: 一个仓库或者项目的负责人。owner可以是lord也可以不是（虎级项目不用是lord）。
 * DDL、Due: DDL(deadline)任务完成的截止日期，Due 任务负责人
 * LGTM：Looks good to me。在 code review 和讨论中表示认可，不会阻止。
-* OTOH：On The Other Hand，另一方面，换一个角度来说。
+* OTOH：On the other hand，另一方面，换一个角度来说。
 * btw：by the way。顺带一提。
 * tiger、whale、dragon：用来从低到高表示三类不同的项目划分。没有外部交付要求的项目属于 tiger 级，一般是新人的培训项目以及毕业设计；whale是有外部交付但是交付时间不严格的开源项目。例如 rvv-llvm 和 pacific 都属于 whale 级；dragon 是指有严格交货日约束以及有商业保密要求的项目。所有商业类交付都属于 dragon 级。OTOH，由于在y站也进行了不同的群组区分，所以 tiger 一般是指全体员工和学生。
 * 代码尸体：参考 `rules  <./rules.rst>`_
@@ -30,4 +30,4 @@
 * upstream：这是个泛指，通常作为名词是指开源代码项目的官方社区；作为动词是表示将PLCT的成果提交给上游社区。
 * 歧义指代：是指从上下文剥离出来之后无法知道具体指代的客体是什么的话。例如「这个、那个、上次、昨天」等。
 * hq：headquarts。指挥中心，远离战区，做情报调度、分析和决策。
-* FYI: for your information。给你的信息，请知悉。
+* FYI: for your information。给你的信息，请知悉，顺带一提。
