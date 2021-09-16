@@ -28,7 +28,7 @@ Schedule
     1/29: Potpourri
     1/30: Q&A
 
-TODO: 回头我来搬运到B站
+B站链接： [[MIT]计算机科学课堂中学不到的知识 The Missing Semester of Your CS Education(2020)](https://www.bilibili.com/video/BV1x7411H7wa)
 
 贴发票（基础财务知识）
 --------------------------------
