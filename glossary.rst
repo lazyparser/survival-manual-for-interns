@@ -31,3 +31,7 @@
 * 歧义指代：是指从上下文剥离出来之后无法知道具体指代的客体是什么的话。例如「这个、那个、上次、昨天」等。
 * hq：headquarts。指挥中心，远离战区，做情报调度、分析和决策。
 * FYI: for your information。给你的信息，请知悉，顺带一提。
+* AFAIK/AFAICS: as far as I know/can see。据我所知。
+* TL;DR: Too Long; Didn't Read。太长不看。常见于作者总结摘要的开头。
+* FWIW: For what it's worth。无论如何，无论怎样。
+* FTBFS: Fails To Build From Source。无法从源代码编译。
