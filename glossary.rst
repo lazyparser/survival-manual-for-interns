@@ -35,3 +35,5 @@
 * TL;DR: Too Long; Didn't Read。太长不看。常见于作者总结摘要的开头。
 * FWIW: For what it's worth。无论如何，无论怎样。
 * FTBFS: Fails To Build From Source。无法从源代码编译。
+* SIG: Special interest group。专项兴趣小组。一般指专注特定技术、应用领域的工作小组。
+* BoF：Birds of (a) Feather。非正式讨论小组。一般在会议活动中用于临时、或形成正式小组前的讨论，无需准备提纲等。
