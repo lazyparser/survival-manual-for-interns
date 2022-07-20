@@ -1,2 +1,2 @@
-# survivial-manual-for-interns
+# survival-manual-for-interns
 Survival Manual for My Interns

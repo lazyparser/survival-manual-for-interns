@@ -111,8 +111,8 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 
 ::
 
-  $ git clone git@github.com:lazyparser/survivial-manual-for-interns.git
-  Cloning into 'survivial-manual-for-interns'...
+  $ git clone git@github.com:lazyparser/survival-manual-for-interns.git
+  Cloning into 'survival-manual-for-interns'...
   Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
   git@github.com: Permission denied (publickey).
 
@@ -163,7 +163,7 @@ OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息�
 最后就可以使用SSH方式下载仓库文件了。比如：
 ::
 
-    $ git clone git@github.com:lazyparser/survivial-manual-for-interns.git
+    $ git clone git@github.com:lazyparser/survival-manual-for-interns.git
 
 TODO 由实习生遇到问题之后发起PR到这里。
 
@@ -273,9 +273,9 @@ av83277184
 
 例如：
 
-这样引用超链接 https://github.com/lazyparser/survivial-manual-for-interns 前后加空格是好的做法；
+这样引用超链接 https://github.com/lazyparser/survival-manual-for-interns 前后加空格是好的做法；
 
-这样引用超链接https://github.com/lazyparser/survivial-manual-for-interns前后不加空格不是好的做法。
+这样引用超链接https://github.com/lazyparser/survival-manual-for-interns前后不加空格不是好的做法。
 
 写中英文夹杂的文档时，在中文和英文之间加入空格
 ====================================================
