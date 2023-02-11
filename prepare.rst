@@ -43,14 +43,14 @@ https://zhuanlan.zhihu.com/p/163717035
 ================================================
 
 * Mario Wolczko @ VMSS16: A Concise and Opinionated History of Virtual Machines
-https://www.youtube.com/watch?v=QnQYhrpX39M&list=PLJq3XDLIJkib2h2fObomdFRZrQeJg4UIW
+  https://www.youtube.com/watch?v=QnQYhrpX39M&list=PLJq3XDLIJkib2h2fObomdFRZrQeJg4UIW
 
 90分钟时间，介绍了虚拟机发展的一些历史，是系统性了解虚拟机历史发展很好的入门阅读。
 
 
 * Cliff Click @ VMSS16: Bits of Advice For the VM Writer
-https://www.youtube.com/watch?v=Hqw57GJSrac&list=PLJq3XDLIJkib2h2fObomdFRZrQeJg4UIW&index=2
-Must Read
+  https://www.youtube.com/watch?v=Hqw57GJSrac&list=PLJq3XDLIJkib2h2fObomdFRZrQeJg4UIW&index=2
+  Must Read
 
 RISC-V 相关的内容
 ================================================
