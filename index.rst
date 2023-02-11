@@ -10,6 +10,7 @@
    :maxdepth: 2
    :caption: Contents:
 
+   ./prepare
    ./interview
    ./first-four-weeks
    ./team-dynamics
