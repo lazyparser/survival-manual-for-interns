@@ -9,7 +9,7 @@ SOURCEDIR     = .
 BUILDDIR      = _build
 
 default:
-	$(MAKE) html
+	$(MAKE) html latex latexpdf
 
 # Put it first so that "make" without argument is like "make help".
 help:
