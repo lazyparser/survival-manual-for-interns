@@ -47,8 +47,9 @@ TODO
 正确操作示例：
 ::
 
-    DIR = test
-    if[ -e ${DIR}]
+    DIR=test
+    # 1. 等号赋值两边不能有空格 2. 命令与选项之间需要空格
+    if [ -e ${DIR} ]
     then
         echo ${DIR} exist
     else
