@@ -13,12 +13,14 @@
 * gh/isrc：是 `<https://github.com/isrc-cas>`_ 的缩写。
 * LV2、LV3、LV4: 是对实习生的能力等级划分。 `links <https://github.com/lazyparser/weloveinterns/blob/master/how-do-we-rank-interns.md>`_。
 * mentor: 导师，上司
-* lord、领主：是团队内部带有项目管理的资深成员的称呼。
-* fief：每个 lord 都有自己的 fief。
+* lord: 领主，是团队内部带有项目管理的资深成员的称呼。
+* fief: 每个 lord 都有自己的 fief。
 * owner: 一个仓库或者项目的负责人。owner可以是lord也可以不是（虎级项目不用是lord）。
 * DDL、Due: DDL(deadline)任务完成的截止日期，Due 任务负责人
 * LGTM：Looks good to me。在 code review 和讨论中表示认可，不会阻止。
 * OTOH：On the other hand，另一方面，换一个角度来说。
+* IMHO: In my humble opinion，以我的愚见（不过另一种用法就是准备开始言辞激烈的争论）。
+* AFAIK: As far as I know，据我所知。
 * btw：by the way。顺带一提。
 * tiger、whale、dragon：用来从低到高表示三类不同的项目划分。没有外部交付要求的项目属于 tiger 级，一般是新人的培训项目以及毕业设计；whale是有外部交付但是交付时间不严格的开源项目。例如 rvv-llvm 和 pacific 都属于 whale 级；dragon 是指有严格交货日约束以及有商业保密要求的项目。所有商业类交付都属于 dragon 级。OTOH，由于在y站也进行了不同的群组区分，所以 tiger 一般是指全体员工和学生。
 * 代码尸体：参考 `rules  <./rules.rst>`_
