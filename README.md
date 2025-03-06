@@ -1,2 +1,3 @@
-# survival-manual-for-interns
-Survival Manual for My Interns
+# 实习生存指南
+
+Survival manual for my interns and fresh engineers.
