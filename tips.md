@@ -66,151 +66,6 @@ Offloading 给你而扣除的我的时间的期望（E）。
 
 正式的学术论文比较难，需要的背景知识比较多，因此并不算在消化理解型报告中，属于专门的论文讨论型报告。
 
-## 如何通过 GitHub 的 Pull Request 提交工作
-
-实习生相关的工作有超过半数是在 GitHub 上公开进行的。
-因此，如何熟练的使用 GitHub 的各种功能就显得对于效率的提升尤为重要。
-
-### 第一次提交PR的时候
-
-如果是第一天在一个 GitHub 公开仓库上工作，那么遵守 fork-commit-push-PR
-流程。具体流程可以 Google 到 GitHub 的官方文档或者其他优秀的教程。
-
-需要注意的是，任何工作最好都不要在已经有的分支上进行。默认应该是每次工作开一个新的分支。
-
-理由是如果是在已有的分支上进行commit（熟练实习生一般是偷懒或者习惯没有养成，新手实习生往往是不知道可以
-checkout -b）， 那么基本上是「单线程」的工作模式：在 master 分支上
-commit 之后， push 到自己的 GitHub remote， 发起
-PR，然后就什么都做不了了，等我来处理。
-
-正确做法是每次工作都开一个新的分支来做。具体：
-
-1.  Clone 下来 repo，切换到 master 或者 develop
-    分支（具体根据项目约定）。
-2.  从项目工作约定的分支 <span class="title-ref">checkout -b</span> 一个
-    local branch，分支名字可以是
-    <span class="title-ref">issueNNN</span>，对应任务的 id。
-3.  work，commit，work，commit，得到一个 commit list
-    （有时候对应的patches叫 patch set）
-4.  push 到你自己的 GitHub remote
-    的新分支，注意是新分支，一般是跟本地分支名字相同（to save your time
-    and life）。
-5.  登录进入 GitHub 网页，看到你的分支，按照提示进行 Pull Request
-    操作。注意一定要选对目标分支，如果不明白，跟你的mentor询问。
-6.  Reviewer （一般是你的mentor）进行 code
-    review。一般会提一些意见，要求修改。
-7.  如果要求修改，跳转到 3.
-    新的修改push到已经发起PR的分支之后不需要重复发起PR。
-8.  如果被merge，那么恭喜🎉同时要注意，现在开始你的工作流程就不一样了。继续往下看。
-
-### 第 N+1 次提交PR的时候
-
-OK，现在恭喜你，已经有了被 merge 的 PR。同时有一个坏消息告诉你：
-从现在开始你 fork 出来的 repo 已经跟上游的 repo 不一样了。
-虽然我曾经惊奇的发现过一个简单粗暴的解决办法【1】但是我并不打算告诉你。
-
-正确的做法如下：
-
-1.  进入已经 clone 的 repo。运行 <span class="title-ref">git remote
-    -v</span>。预期看到一个 remote，名字是 origin， URL 是你的 GitHub
-    repo，forked from repo AAA。
-2.  假设你的repo是从 repo AAA fork 出来的。例如
-    <https://github.com/lazyparser/becoming-a-compiler-engineer-codes>
-    运行 <span class="title-ref">git remote add lazyparser URL</span>。
-    这一步的作用是添加了一个新的 remote。 remote
-    的名字可以自己取一个，没有什么需要遵守的规律。
-3.  运行 <span class="title-ref">git fetch lazyparser</span>
-    将上游仓库的代码也 clone 一份下来到你的本地机器（跟 origin
-    同样保存在 .git 目录下）
-4.  本地创建一个分支，从你计划 push 的 branch。具体
-    <span class="title-ref">git help branch</span> or
-    <span class="title-ref">git help
-    checkout</span>。你会发现原来这些命令都可以带两个以上参数的。一条命令搞定。
-5.  work，commit，work，commit，得到一个 commit list
-    （有时候对应的patches叫 patch set）
-6.  【注意】 push 到 **你自己的** GitHub remote
-    的新分支，注意是新分支，一般是跟本地分支名字相同（to save your time
-    and life）。
-7.  其他都跟第一次类似了。
-8.  以后，如果PR遇到冲突，表示上游分支已经更新了，你需要更新自己的本地分支已解决冲突。解决方法是
-    git fetch 然后 git rebase。遇到冲突的时候，用 git status
-    查看哪些是冲突的，打开，一个个修改。搜索类似
-    <span class="title-ref">\<\<\<\<HEAD</span> 这样的字样。
-9.  修改（fix）了所有的conflicts之后，用 git rebase --continue 继续
-    rebase。
-10. rebase完成之后，push到你自己的remote（一般是
-    origin）。如果已经发起了PR，那么PR应该自动更新了。
-
-### 其它情况
-
-#### 使用SSH方式clone 仓库源码
-
-使用SSH的方式下载仓库代码，需要个人在Github的 [SSH
-Keys设置](https://github.com/settings/keys) 里配置本机的SSH公钥。
-
-否则无法clone 源码：
-
-    $ git clone git@github.com:lazyparser/survival-manual-for-interns.git
-    Cloning into 'survival-manual-for-interns'...
-    Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
-    git@github.com: Permission denied (publickey).
-
-具体配置步骤如下：
-
-1\. 本地机器上配置SSH :
-
-    $ ssh-keygen -t rsa -C "1132021192@qq.com"
-    Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/chenjy/.ssh/id_rsa):
-    Enter passphrase (empty for no passphrase):
-    Enter same passphrase again:
-    Your identification has been saved in /home/chenjy/.ssh/id_rsa.
-    Your public key has been saved in /home/chenjy/.ssh/id_rsa.pub.
-    The key fingerprint is:
-    SHA256:aCPtc0lxXkzqlawcjDbxOTo7pgIrY1wS2ig6D4iio8k 1132021192@qq.com
-    The key's randomart image is:
-    +---[RSA 2048]----+
-    |        .   .    |
-    |         = * .   |
-    |        = O *    |
-    | .   . o O *     |
-    |.o. . = S =      |
-    |*.o. + o +       |
-    |O oo  o *        |
-    |X=. .  = .       |
-    |*E.  ..          |
-    +----[SHA256]-----+
-
-注：邮箱修改为自己的邮箱，Enter passphrase 默认回车即可。
-
-2\. 将公钥复制粘贴到 Github 的个人SSH Keys配置里。 产生的公钥一般为
-<span class="title-ref">~/.ssh/id_rsa.pub</span> :
-
-    $ cat ~/.ssh/id_rsa.pub
-    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa+LNRQuTAjMWZjRZ8d0CK9rZFjZZBQG2Q8UqBZpHQ7GQSBMdhO4mxRYYk/Zb7t7pMj3BpEyOOGKOFXRjic7ibREnki06TQ8LBolRAFDSBv6E4oOS5ei52mwh+NiL2mT7/5GdwZwgR2eDO22MxDRCHObFr2TBHkiThRs9NTi/28UPsy3MluyuPU/0IWZNwcjr1EKRL9qNOh9Ro+8GoEEb23A6sdG2zOjiV/VKiba8so5TqBt9ZFPvjnJtKINUb8TasusC49dSay5paDCJKnDCJQoDIiOn7ggg4ivkan2w9HK4lUK5oNHjQyQRPRiFBF+mm5DJJ7TW03dheOqZq6KPT 1132021192@qq.com
-
-选中公钥复制粘贴到Github [SSH
-Keys设置](https://github.com/settings/keys) 的 NEW SSH key 的 key
-里即可(Title自己命名)。
-
-3\. 启动SSH代理并添加密钥 :
-
-    $ eval `ssh-agent -s`
-    $ ssh-add
-
-最后就可以使用SSH方式下载仓库文件了。比如： :
-
-    $ git clone git@github.com:lazyparser/survival-manual-for-interns.git
-
-TODO 由实习生遇到问题之后发起PR到这里。
-
-## 在gitlab/github上如何寻找其他人的ID
-
-使用中文输入法的时候，用户的ID提示不会在输入 @ 之后自动提示出来。
-用英文输入法就不会遇到这个问题。所以在需要 @ 他人的时候，
-一种方法是切换到英文输入法，另一种是用中文输入法输入了英文之后，
-按一下退格键，这会触发github/gitlab的ID查找功能，给出正确的结果。
-
 ## 开task的时候，如何正确的写标题
 
 比较常见错误是直接写（我要）做什么事情。这是错误的。想象下我每天看所有人的标题的时候能够看出来什么。
@@ -239,15 +94,6 @@ TODO 由实习生遇到问题之后发起PR到这里。
 2.  描述bug出现的过程—一些简单的问题往往会因为没有清晰的描述而变得难以琢磨，“电脑突然黑屏了，进不去系统”，这种问题抛给任何一个专家都是令人头疼的，详细描述bug产生的过程和你做的操作，“更新了显卡驱动，然后电脑突然黑屏了，进不去系统”，更仔细的会描述帮助问题定位更加精确，有时多几个文字就可以大幅减少处理问题需要的时间。
 3.  提供bug的复现步骤——“能复现的bug都是好bug”，bug的复现步骤往往是判断bug属性的关键，如果bug能够复现，那么大家都可以参与到bug的解决中来，产生不同的思路和尝试，提出不同的解决方法，高效解决问题。（如果不能复现，那么这个bug对你来说是很危险的，请仔细查看有关说明和代码，必要时尝试不同机器。）
 4.  提供bug截图——无图无真相，请在报告bug时配上bug的截图或照片
-
-## 如何正确的进行情报收集（Google tips）
-
-学会利用专业平台进行资料搜索与问题交流，站在巨人的肩膀上去看远方。
-Google的访问方式请自行百度学习VPS...，喝茶去了....
-
-## 如何做进度报告
-
-TBD
 
 ## ZIP文件的跨OS操作注意事项
 
@@ -318,64 +164,6 @@ world123”
 ## 在使用 Word 编辑文档时，将常用的术语加入“字典”
 
 这样做能够方便编辑器发挥其拼写检查功能。
-
-## 拿到新电脑后可以做的事(从开箱到 llvm)
-
-1.  进入系统后安装wsl/wsl2（默认ubuntu18.04），安装方法可以参考这篇官方文档
-    <https://docs.microsoft.com/zh-cn/windows/wsl/install-win10>
-
-2\. 从开始菜单进入安装好的ubuntu系统中，进入 `/etc/apt`
-更换软件源为国内源(以阿里云软件源为例),并更新软件列表: :
-
-    $ cd /etc/apt
-    $ vi sources.list
-    //vim中输入 :%:cn.archive.ubuntu:mirrors.aliyun:g ,进行查找替换源
-    $ sudo apt-get update
-
-3\. 安装git、gcc、g++、cmake、make、ninja-build :
-
-    $ sudo apt-get install git gcc g++ cmake make ninja-build
-
-4.  导入自己的ssh密钥(参考上方)
-
-5\. 克隆llvm项目到本地(没速度的话尝试去掉https中的s，或者从y站镜像clone)
-:
-
-    $ git clone https://github.com/llvm/llvm-project.git
-
-6\.
-进入llvm-project，准备编译llvm+clang(由于wsl只能运行在系统盘，注意你新电脑的系统盘大小，建议剩余100G)
-:
-
-    $ cd llvm-project
-    $ mkdir build
-    $ cd build
-    $ cmake -G "Unix Makefiles" -DLLVM_ENABLE_PROJECTS="clang;libcxx;libcxxabi" ../llvm
-
-7\. 编译llvm，并记录你的编译用时 :
-
-    $ time make -j4
-
-8\. 验证llvm是否安装成功(参考 <https://llvm.org/docs/TestingGuide.html>
-) :
-
-    $ make check
-
-【1】
-我曾经指导过的一位实习生，每次要解决跟我（upstream）的repo不一致时候，都是删除自己的
-fork，重新 fork。提交了多少次 PR 就删除了多少次。
-更好玩的是，他还教会了周围的还处在迷茫中的实习生，一度成为了。
-
-## Remote rejected (shallow update not allowed) after changing Git remote URL
-
-如果是为了带宽问题用了 <span class="title-ref">git clone -depth x</span>
-选项，那么 push 到别的remote的时候会遇到
-
-    ! [remote rejected]       master -> master (shallow update not allowed)
-
-解决方法：
-
-<https://stackoverflow.com/questions/28983842/remote-rejected-shallow-update-not-allowed-after-changing-git-remote-url>
 
 ## 报告交流用的PPT/Slides需要准备中文和英文版本
 
@@ -653,7 +441,3 @@ patch。LV2以下员工如果 git 操作不熟练，或者传递的是 docx
 ## macOS
 
 Tips macOS的输入法记得关闭touchbar推荐，不然会卡顿
-
-------------------------------------------------------------------------
-
-下一个技巧，欢迎提交 Pull Requests
