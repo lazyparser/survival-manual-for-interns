@@ -17,8 +17,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'实习求生指南'
-copyright = '2020, Wei Wu @lazyparser'
+project = u'实习生存指南'
+copyright = '2026, 吴伟 (Wei Wu) @lazyparser'
 author = 'Wei Wu @lazyparser'
 
 # The full version, including alpha/beta/rc tags
