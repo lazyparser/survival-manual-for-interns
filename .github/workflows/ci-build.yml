@@ -30,3 +30,8 @@ jobs:
       - name: Build docs
         working-directory: .
         run: make html
+
+      - name: Build PDF
+        working-directory: .
+        run: make latexpdf
+
