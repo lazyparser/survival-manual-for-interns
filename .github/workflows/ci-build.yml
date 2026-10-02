@@ -27,6 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-docs.txt
 
+      - name: Install LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk latexmk texlive-fonts-recommended texlive-lang-chinese texlive-xetex
+
       - name: Build docs
         working-directory: .
         run: make html
