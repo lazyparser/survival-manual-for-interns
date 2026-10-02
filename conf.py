@@ -63,3 +63,18 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 master_doc = 'index'
+
+# ---- LaTeX / PDF 中文支持 ----
+latex_engine = 'xelatex'          # zh_CN 会自动选，显式写出来更明确
+
+latex_elements = {
+    'fontpkg': r'''
+\setmainfont{Noto Serif CJK SC}
+\setsansfont{Noto Sans CJK SC}
+\setmonofont{Noto Sans Mono CJK SC}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+''',
+}
+
